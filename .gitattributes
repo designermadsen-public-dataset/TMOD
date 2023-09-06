@@ -1,0 +1,32 @@
+* text=auto
+
+# Default file extensions
+*.md text diff=markdown eol=lf
+*.sh text diff=sh eol=lf export-ignore
+
+*.py text diff=python eol=lf export-ignore
+*.ipynb text diff=ipynb eol=lf export-ignore
+
+*.toml text diff=toml eol=lf
+*.json text diff=json eol=lf
+*.yml text diff=yml eol=lf
+*.xml text diff=xml eol=lf
+
+# Image files
+*.jpg binary diff=jpeg
+*.jpeg binary diff=jpeg
+*.bmp binary diff=bmp 
+*.ttf binary diff=ttf
+
+# Git attributes
+.gitignore text eol=lf diff=gitignore export-ignore
+.gitattributes text eol=lf diff=gitattributes export-ignore
+.gitmodules text eol=lf diff=gitmodules export-ignore
+
+# Dont export work directories
+/.github export-ignore
+
+src export-ignore
+script export-ignore
+publish export-ignore
+notebooks export-ignore

@@ -13,8 +13,9 @@
 *.xml text diff=xml eol=lf
 
 # Image files
-*.jpg binary diff=jpeg
-*.jpeg binary diff=jpeg
+*.jpg binary diff=exif
+*.jpeg binary diff=exif
+
 *.bmp binary diff=bmp 
 *.ttf binary diff=ttf
 

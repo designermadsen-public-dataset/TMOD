@@ -1,2 +1,2 @@
-from TMOD \
+from tmod \
     import TMOD

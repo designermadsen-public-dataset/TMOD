@@ -1,2 +1,2 @@
-from src.tmod.tmod \
+from src.tmod.tmods \
     import TMOD

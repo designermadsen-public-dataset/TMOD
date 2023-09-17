@@ -4,8 +4,16 @@ from src.tmod \
 
 def test_tmod() -> None:
     tmod = TMOD()
-    
-    tmod.download('1000')
+
+    version_to_download = '1000'
+
+    tmod.download(
+        version_to_download
+    )
+
+    tmod.install(
+        version_to_download
+    )
 
     assert True
 

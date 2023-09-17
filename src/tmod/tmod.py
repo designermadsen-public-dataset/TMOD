@@ -1,6 +1,3 @@
-from shutil \
-    import unpack_archive
-
 from src.tmod.defaults      \
     import                  \
     default_temporary,      \
@@ -9,7 +6,7 @@ from src.tmod.defaults      \
 from urllib.request \
     import urlretrieve
 
-from src.tmod.providers         \
+from src.tmod.providers     \
     import retrieve_providers
 
 from src.tmod.state \
@@ -23,6 +20,9 @@ from src.tmod.labels    \
     get_label_samples,  \
     get_label_versions, \
     get_label_current_version
+
+from src.tmod.extract \
+    import extract
 
 
 class TMOD:
@@ -41,9 +41,11 @@ class TMOD:
     ) -> None:
         if is_downloaded(
             sample, 
-            self.tmp_dir
+            self.get_temporary_directory()
         ):
-            raise IOError('is already present')
+            raise IOError(
+                'is already present'
+            )
         
         self.__download_to_tmp(
             sample
@@ -59,7 +61,14 @@ class TMOD:
             get_label_current_version()
         ][
             get_label_samples()
-        ][sample][0]
+        ][
+            sample
+        ][
+            self.select_a_provider()
+        ]
+
+    def select_a_provider(self) -> int:
+        return 0
 
     def __download_to_tmp(
         self, 
@@ -81,7 +90,11 @@ class TMOD:
         self,
         sample: str
     ) -> None:
-        pass
+        extract(
+            sample,
+            self.get_temporary_directory(),
+            self.get_installation()
+        )
 
     def get_installation(
         self

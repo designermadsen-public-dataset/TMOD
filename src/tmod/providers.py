@@ -7,9 +7,11 @@ from json \
 
 distributions: str = 'https://raw.githubusercontent.com/designermadsen-public-dataset/TMOD/main/distribution.providers.json'
 
+
 def get_distribution_providers_url() -> str:
     global distributions
     return distributions
+
 
 def retrieve_providers() -> dict:
     providers_json = get(

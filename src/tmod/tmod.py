@@ -3,7 +3,7 @@ from shutil \
 
 from src.tmod.defaults      \
     import                  \
-    default_temperary,      \
+    default_temporary,      \
     default_installation
 
 from urllib.request \
@@ -18,14 +18,11 @@ from src.tmod.state \
 from os.path \
     import join
 
-def get_label_versions() -> str:
-    return 'versions'
-
-def get_label_current_version() -> str:
-    return '1.0.0'
-
-def get_label_samples() -> str:
-    return 'samples'
+from src.tmod.labels    \
+    import              \
+    get_label_samples,  \
+    get_label_versions, \
+    get_label_current_version
 
 
 class TMOD:
@@ -71,7 +68,7 @@ class TMOD:
         file_name = sample + '.zip'
         
         full_path = join(
-            self.get_temperary_directory(), 
+            self.get_temporary_directory(),
             file_name
         )
 
@@ -102,17 +99,17 @@ class TMOD:
     ) -> None:
         self.installation = value
     
-    def get_temperary_directory(
+    def get_temporary_directory(
         self
     ) -> str:
         if self.tmp_dir is None:
-            self.set_temperary_directory(
-                default_temperary()
+            self.set_temporary_directory(
+                default_temporary()
             )
 
         return self.tmp_dir
     
-    def set_temperary_directory(
+    def set_temporary_directory(
         self, 
         value: str
     ) -> None:

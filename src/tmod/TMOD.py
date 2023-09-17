@@ -1,6 +1,3 @@
-from requests \
-    import get
-
 from shutil \
     import unpack_archive
 
@@ -9,6 +6,12 @@ from defaults           \
     default_temperary,  \
     default_installation
 
+from urllib \
+    import request
+
+from providers \
+    import retrieve_providers
+
 
 class TMOD:
     def __init__(
@@ -16,8 +19,21 @@ class TMOD:
         installation: str | None = None,
         tmp: str | None = None
     ) -> None:
+        self.providers = retrieve_providers()
         self.installation: None | str = installation
         self.tmp_dir: None | str = tmp
+
+    def download(
+        self,
+        sample: str
+    ) -> None:
+        pass
+
+    def install(
+        self,
+        sample: str
+    ) -> None:
+        pass
 
     def get_installation(
         self

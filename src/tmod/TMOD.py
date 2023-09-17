@@ -18,6 +18,15 @@ from src.tmod.state \
 from os.path \
     import join
 
+def get_label_versions() -> str:
+    return 'versions'
+
+def get_label_current_version() -> str:
+    return '1.0.0'
+
+def get_label_samples() -> str:
+    return 'samples'
+
 
 class TMOD:
     def __init__(
@@ -47,7 +56,13 @@ class TMOD:
         self, 
         sample: str
     ):
-        return self.providers['versions']['1.0.0']['samples'][sample][0]
+        return self.providers[
+            get_label_versions()
+        ][
+            get_label_current_version()
+        ][
+            get_label_samples()
+        ][sample][0]
 
     def __download_to_tmp(
         self, 

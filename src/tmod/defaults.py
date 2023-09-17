@@ -37,7 +37,7 @@ def setup_default_for_os() -> None:
     installation_for_os = expanduser('~')
     installation_for_os = join(
         installation_for_os, 
-        'Dataset'
+        '.dataset'
     )
 
     if not isdir(installation_for_os):

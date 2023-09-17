@@ -1,0 +1,25 @@
+{
+    "versions": 
+    {
+        "1.0.0": 
+        {
+            "samples": 
+            {
+                "10000": 
+                [
+                    "https://nextcloud.nathue.dk/s/A3PmWgic4gSPeRq/download/TMOD-10000.annotations.v1.zip"
+                ],
+                "5000":
+                [
+                    "https://nextcloud.nathue.dk/s/zwiqGdnD8JcqC8N/download/TMOD-5000.annotations.v1.zip"
+                ],
+                "1000": 
+                [
+                    "https://nextcloud.nathue.dk/s/KPjNJnRjRpQ4CiG/download/TMOD-1000.annotations.v1.zip"
+                ]
+            }
+        }
+        
+    }
+
+}

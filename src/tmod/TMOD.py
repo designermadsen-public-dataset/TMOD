@@ -1,16 +1,22 @@
 from shutil \
     import unpack_archive
 
-from defaults           \
-    import              \
-    default_temperary,  \
+from src.tmod.defaults      \
+    import                  \
+    default_temperary,      \
     default_installation
 
-from urllib \
-    import request
+from urllib.request \
+    import urlretrieve
 
-from providers \
+from src.tmod.providers         \
     import retrieve_providers
+
+from src.tmod.state \
+    import is_downloaded
+
+from os.path \
+    import join
 
 
 class TMOD:
@@ -27,8 +33,38 @@ class TMOD:
         self,
         sample: str
     ) -> None:
-        pass
+        if is_downloaded(
+            sample, 
+            self.tmp_dir
+        ):
+            raise IOError('is already present')
+        
+        self.__download_to_tmp(
+            sample
+        )
 
+    def get_provider(
+        self, 
+        sample: str
+    ):
+        return self.providers['versions']['1.0.0']['samples'][sample][0]
+
+    def __download_to_tmp(
+        self, 
+        sample: str
+    ) -> None:
+        file_name = sample + '.zip'
+        
+        full_path = join(
+            self.get_temperary_directory(), 
+            file_name
+        )
+
+        response = urlretrieve(
+            self.get_provider(sample), 
+            full_path
+        )
+    
     def install(
         self,
         sample: str
